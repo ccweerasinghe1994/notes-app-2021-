@@ -7,5 +7,9 @@
     "test": "isit"
   },
   "author": "wchamara",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "yargs": "^17.0.1"
+  }
 }
