@@ -8,7 +8,23 @@ yargs.version("1.0.23");
 yargs.command({
   command: "add",
   describe: "this will add notes to the appllication",
-  handler: () => console.log("adding notes"),
+  builder: {
+    title: {
+      describe: "note title",
+      demandOption: true,
+      type: "string",
+    },
+    body: {
+      describe: "note body",
+      demandOption: "true",
+      type: "string",
+    },
+  },
+  handler: ({ title, body }) =>
+    console.log(`
+  Title:${title}
+  Body:${body}
+  `),
 });
 
 // remove command
@@ -35,4 +51,4 @@ yargs.command({
   handler: () => console.log("listong all the notes"),
 });
 
-console.log(yargs.argv);
+yargs.parse();
