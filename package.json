@@ -1,0 +1,11 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "description": "note taking app",
+  "main": "app.js",
+  "scripts": {
+    "test": "isit"
+  },
+  "author": "wchamara",
+  "license": "ISC"
+}
