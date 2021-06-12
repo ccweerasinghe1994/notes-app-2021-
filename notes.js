@@ -3,6 +3,13 @@ const fs = require("fs");
 // importing chalk
 const chalk = require("chalk");
 
+// function to list notes
+const listNotes = () => {
+  const notes = loadNotes();
+  console.log(chalk.blue.inverse("Your Notes"));
+  notes.map((note) => console.log(chalk.green("Title : " + note.title)));
+};
+
 // function to add notes
 const addNotes = (title, body) => {
   const notes = loadNotes();
@@ -58,4 +65,5 @@ const loadNotes = () => {
 module.exports = {
   addNotes,
   removeNote,
+  listNotes,
 };
