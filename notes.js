@@ -3,6 +3,20 @@ const fs = require("fs");
 // importing chalk
 const chalk = require("chalk");
 
+// function will read a single note
+const readNote = (title) => {
+  
+  const notes = loadNotes();
+  const note = notes.find((note) => note.title === title);
+  if (note) {
+    const message = chalk.green("SUCCESS : Here is your Note");
+    console.log(message);
+    console.log(chalk.green("Title : " + notes[0].title));
+  } else {
+    console.log(chalk.red("Sorry Your Note Doesn't exist"));
+  }
+};
+
 // function to list notes
 const listNotes = () => {
   const notes = loadNotes();
@@ -66,4 +80,5 @@ module.exports = {
   addNotes,
   removeNote,
   listNotes,
+  readNote,
 };
