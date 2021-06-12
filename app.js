@@ -1,6 +1,6 @@
 const yargs = require("yargs");
 // importing notes functions
-const { addNotes, removeNote } = require("./notes");
+const { addNotes, removeNote, listNotes } = require("./notes");
 // we can specify the version using args
 yargs.version("1.0.23");
 
@@ -52,7 +52,7 @@ yargs.command({
 yargs.command({
   command: "list",
   describe: "listing all the notes from the application",
-  handler: () => console.log("listong all the notes"),
+  handler: () => listNotes(),
 });
 
 yargs.parse();
