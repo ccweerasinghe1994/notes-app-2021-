@@ -14,7 +14,7 @@ const listNotes = () => {
 const addNotes = (title, body) => {
   const notes = loadNotes();
   const DuplicateArray = findDuplicate(notes, title);
-  if (DuplicateArray.length < 1) {
+  if (!DuplicateArray) {
     const newNotes = JSON.stringify([...notes, { title, body }]);
     writeToNote(newNotes);
     const message = chalk.green("SUCCESS : This Title is added to the notes");
@@ -29,7 +29,7 @@ const addNotes = (title, body) => {
 const removeNote = (title) => {
   const notes = loadNotes();
   const findNote = findDuplicate(notes, title);
-  if (findNote.length > 0) {
+  if (findNote) {
     const removedList = notes.filter((note) => note.title !== title);
     const removedListJSON = JSON.stringify(removedList);
     writeToNote(removedListJSON);
@@ -43,7 +43,7 @@ const removeNote = (title) => {
 
 // this function will look for duplicate title in the array
 const findDuplicate = (notes, title) =>
-  notes.filter((note) => note.title === title);
+  notes.find((note) => note.title === title);
 
 // this function will write the note to the json file
 const writeToNote = (notes) => {
